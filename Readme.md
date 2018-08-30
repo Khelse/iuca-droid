@@ -18,5 +18,5 @@ participation grade
 
 View the screen of the instructor's machine
 
-* <TBD>
+* TBD
 
