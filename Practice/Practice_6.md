@@ -28,6 +28,62 @@ UI widgets that you need to use
 Try to use JSON (`JSONObject`) and XML (`getResources().obtainTypedArray()`) to
 store conversion factors and unit/currency names.
 
+Add at least the following units and currencies for the first version.
+
+```xml
+<string-array name="length_conversion_unit_names">
+    <item>Milimeter</item>
+    <item>Centimeter</item>
+    <item>Meter</item>
+    <item>Kilometer</item>
+    <item>Mile</item>
+</string-array>
+
+<string-array name="mass_conversion_unit_names">
+    <item>Miligram</item>
+    <item>Gram</item>
+    <item>Kilogram</item>
+    <item>Metric ton</item>
+    <item>Pound</item>
+</string-array>
+
+<string-array name="currency_conversion_unit_names">
+    <item>US Dollar</item>
+    <item>Russian Ruble</item>
+    <item>Euro</item>
+</string-array>
+
+<array name="length_conversion_factors">
+    <item >1.0</item>
+    <item >10.0</item>
+    <item >1000.0</item>
+    <item >1000000.0</item>
+    <item >1609000.0</item>
+</array>
+
+<array name="mass_conversion_factors">
+    <item >1.0</item>
+    <item >1000.0</item>
+    <item >1000000.0</item>
+    <item >1000000000.0</item>
+    <item >453592.0</item>
+</array>
+```
+
+Without networking, the currency converter should load some initial values and
+allow the user to change them.
+
+```json
+{
+  "US Dollar-Euro"          : 0.73,
+  "US Dollar-Russian Ruble" : 32.0,
+  "Euro-US Dollar"          : 1.37,
+  "Euro-Russian Ruble"      : 43.71,
+  "Russian Ruble-US Dollar" : 0.031,
+  "Russian Ruble-Euro"      : 0.02
+}
+```
+
 Use `SharedPreferences` to load and save the state of the application
 (specifically values from all input fields).
 
