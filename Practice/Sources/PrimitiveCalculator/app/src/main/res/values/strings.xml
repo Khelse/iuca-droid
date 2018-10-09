@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Primitive Calculator</string>
+    <string name="enter_the_first_number">Enter the first number</string>
+    <string name="add">Add</string>
+    <string name="subtract">Subtract</string>
+    <string name="multiply">Multiply</string>
+    <string name="divide">Divide</string>
+    <string name="enter_the_second_number">Enter the second number</string>
+    <string name="calculate">Calculate</string>
+    <string name="cant_divide_by_zero">Can\'t divide by zero</string>
+</resources>

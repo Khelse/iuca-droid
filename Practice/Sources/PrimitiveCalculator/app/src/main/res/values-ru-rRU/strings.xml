@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Примитивный калькулятор</string>
+    <string name="enter_the_first_number">Введите первое число</string>
+    <string name="add">Сложить</string>
+    <string name="subtract">Вычесть</string>
+    <string name="multiply">Умножить</string>
+    <string name="divide">Делить</string>
+    <string name="enter_the_second_number">Введите второе число</string>
+    <string name="calculate">Вычислить</string>
+    <string name="cant_divide_by_zero">Не могу поделить на ноль</string>
+</resources>

@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Converter</string>
+    <string name="enter_the_first_value">Enter the first value</string>
+
+    <string-array name="length_conversion_unit_names">
+        <item>Millimeter</item>
+        <item>Centimeter</item>
+        <item>Meter</item>
+        <item>Kilometer</item>
+        <item>Mile</item>
+    </string-array>
+
+    <string-array name="mass_conversion_unit_names">
+        <item>Milligram</item>
+        <item>Gram</item>
+        <item>Kilogram</item>
+        <item>Metric ton</item>
+        <item>Pound</item>
+    </string-array>
+
+</resources>
