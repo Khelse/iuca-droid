@@ -30,3 +30,7 @@ Consider separating generation logic away from the presentation layer.
 * [Input Events](http://developer.android.com/guide/topics/ui/ui-events.html)
 * [Vector Graphics](https://developer.android.com/studio/write/vector-asset-studio.html)
 * [Image Asset](https://developer.android.com/studio/write/image-asset-studio.html)
+
+## Usefull Links
+
+* [Sample Dice Graphics](https://docs.google.com/presentation/d/1pnnzBPEwaz9SFJFRK6O8F-LKET1i1yA5rRydriTjJCs/edit?usp=sharing)
