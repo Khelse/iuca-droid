@@ -25,3 +25,7 @@ View the screen of the instructor's machine
 View previous class recordings
 
 * <https://www.youtube.com/playlist?list=PLIWindejDy9C2sq0CkYjPEz3IPQOJNIVO>
+
+## Midterm SignUp Form
+
+* <https://docs.google.com/spreadsheets/d/1wCR9713zmaBBYjzpuuLnjoZox85exoOENWYcuGoFSDg/edit?usp=sharing>
