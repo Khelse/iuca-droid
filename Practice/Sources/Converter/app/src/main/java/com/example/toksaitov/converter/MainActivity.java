@@ -29,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             } case R.id.currencyConversionButton:
-                // TODO
+                Intent intent = new Intent(this, CurrencyConversionActivity.class);
+                startActivity(intent);
                 break;
         }
     }

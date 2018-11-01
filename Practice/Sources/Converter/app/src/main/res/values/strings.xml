@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Converter</string>
     <string name="enter_the_first_value">Enter the first value</string>
+    <string name="enter_the_first_currency_value">Enter the first currency value</string>
+    <string name="enter_the_currency_rate">Enter the currency rate</string>
 
     <string-array name="length_conversion_unit_names">
         <item>Millimeter</item>
@@ -16,6 +18,12 @@
         <item>Kilogram</item>
         <item>Metric ton</item>
         <item>Pound</item>
+    </string-array>
+
+    <string-array name="currency_names">
+        <item>US Dollar</item>
+        <item>Russian Ruble</item>
+        <item>Euro</item>
     </string-array>
 
 </resources>
