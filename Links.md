@@ -20,3 +20,7 @@
 ### Morse Code Blinker
 
 * <https://github.com/auca/com.254/blob/master/Practice/Sources/Morse/morse.ino>
+
+### Sending Temperature on ESP8266
+
+* <https://github.com/toksaitov/temperature-beacon>
