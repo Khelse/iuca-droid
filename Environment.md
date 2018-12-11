@@ -26,3 +26,9 @@ Development Environment
 * [Arduino IDE](https://www.arduino.cc/en/Main/Software)
 * [CH340 Driver](https://sparks.gogo.co.nz/ch340.html)
 * [CP210x Driver](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
+* [ESP-32 Board Files for Arduino IDE](https://github.com/espressif/arduino-esp32)
+
+## Sensors
+
+* Dallas DS18B20 (digital)
+* LM35 (analog)
