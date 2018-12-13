@@ -65,8 +65,19 @@
         android:ems="10"
         android:hint="@string/enter_the_currency_rate"
         android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultCurrencySpinner" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:onClick="downloadNewRate"
+        app:layout_constraintBottom_toBottomOf="@+id/currencyRateEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/currencyRateEditText"
+        app:srcCompat="@drawable/ic_arrow_downward_black_24dp" />
 
 </android.support.constraint.ConstraintLayout>

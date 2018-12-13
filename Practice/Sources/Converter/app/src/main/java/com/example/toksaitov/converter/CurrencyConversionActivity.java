@@ -10,6 +10,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,6 +30,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Locale;
 
 public class CurrencyConversionActivity extends AppCompatActivity {
@@ -59,18 +69,56 @@ public class CurrencyConversionActivity extends AppCompatActivity {
         saveCurrencyRates();
     }
 
+    public void downloadNewRate(View view) {
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url ="https://api.exchangeratesapi.io/latest?base=" + firstCurrencySpinner.getSelectedItem();
+
+        final Context context = this;
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+            new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    double rate;
+                    try {
+                        rate = response.getJSONObject("rates").getDouble((String) resultCurrencySpinner.getSelectedItem());
+                    } catch (JSONException e) {
+                        Toast.makeText(context, "Failed to load the currency rate", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    currencyRateEditText.setText(String.valueOf(rate));
+                }
+            },
+            new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(context, "Failed to load the currency rates", Toast.LENGTH_SHORT).show();
+                }
+            }
+        );
+        queue.add(jsonObjectRequest);
+    }
+
     private void setupSpinners() {
-        ArrayAdapter<CharSequence> adapter =
-            ArrayAdapter.createFromResource(
-                this,
-                R.array.currency_names,
-                android.R.layout.simple_spinner_item
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url ="https://api.exchangeratesapi.io/latest";
+
+        final Context context = this;
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+            new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    populateSpinners(response);
+                }
+            },
+            new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(context, "Failed to load the currency rates", Toast.LENGTH_SHORT).show();
+                }
+            }
         );
-        adapter.setDropDownViewResource(
-            android.R.layout.simple_spinner_dropdown_item
-        );
-        firstCurrencySpinner.setAdapter(adapter);
-        resultCurrencySpinner.setAdapter(adapter);
+        queue.add(jsonObjectRequest);
 
         AdapterView.OnItemSelectedListener listener = new AdapterView.OnItemSelectedListener() {
             @Override
@@ -85,6 +133,36 @@ public class CurrencyConversionActivity extends AppCompatActivity {
 
         firstCurrencySpinner.setOnItemSelectedListener(listener);
         resultCurrencySpinner.setOnItemSelectedListener(listener);
+    }
+
+    private void populateSpinners(JSONObject response) {
+        JSONObject rates;
+        try {
+            rates = response.getJSONObject("rates");
+        } catch (JSONException e) {
+            Toast.makeText(this, "Failed to process currency rates", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        ArrayList<CharSequence> currencies = new ArrayList<>();
+        Iterator<String> keys = rates.keys();
+        while (keys.hasNext()) {
+            currencies.add(keys.next());
+        }
+        CharSequence[] currenciesArray = currencies.toArray(new CharSequence[0]);
+        if (currenciesArray == null) {
+            Toast.makeText(this, "Failed to load currency rates", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        ArrayAdapter<CharSequence> adapter =
+            new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, currenciesArray);
+
+        adapter.setDropDownViewResource(
+            android.R.layout.simple_spinner_dropdown_item
+        );
+        firstCurrencySpinner.setAdapter(adapter);
+        resultCurrencySpinner.setAdapter(adapter);
     }
 
     private void setupInputFields() {
@@ -176,8 +254,7 @@ public class CurrencyConversionActivity extends AppCompatActivity {
             try {
                 rate = currencyRates.getDouble(key);
             } catch (JSONException e) {
-                e.printStackTrace();
-                return;
+                downloadNewRate(null);
             }
         }
 
