@@ -23,4 +23,4 @@
 
 ### Sending Temperature on ESP8266
 
-* <https://github.com/toksaitov/temperature-beacon>
+* <https://github.com/toksaitov/temperature-beacon-nodemcu>
