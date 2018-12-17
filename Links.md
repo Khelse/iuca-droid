@@ -21,6 +21,6 @@
 
 * <https://github.com/auca/com.254/blob/master/Practice/Sources/Morse/morse.ino>
 
-### Sending Temperature on ESP8266
+### Sending Temperature on NodeMCU v3 (NOT ESP32 Boards)
 
 * <https://github.com/toksaitov/temperature-beacon-nodemcu>
