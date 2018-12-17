@@ -7,20 +7,24 @@
 * [Macworld San Francisco 2007 Keynote](https://drive.google.com/open?id=0B85z_dQxOMgLWUo3T3VVY2Eyc0E)
 * [Google IO 2012](https://drive.google.com/open?id=0B85z_dQxOMgLZ19pU2tUWDZTNVE)
 
-## Sample code
-
-### Backend
-
-* <https://github.com/toksaitov/temperature-back>
-
-### Frontend
-
-* <https://github.com/toksaitov/temperature-client-ios/tree/master/Temperature>
+## Code Examples
 
 ### Morse Code Blinker
 
 * <https://github.com/auca/com.254/blob/master/Practice/Sources/Morse/morse.ino>
 
-### Sending Temperature on NodeMCU v3 (NOT ESP32 Boards)
+## Project Code Samples
+
+### Docker Back End to Deploy
+
+* <https://github.com/toksaitov/temperature-back>
+
+### Sample Front Ends for iOS and Android
+
+* <https://github.com/toksaitov/temperature-client-ios>
+* <https://github.com/toksaitov/temperature-client-android>
+
+### Code for Sending Temperature on ESP8266 and ESP32 Boards
 
 * <https://github.com/toksaitov/temperature-beacon-nodemcu>
+* <https://github.com/toksaitov/temperature-beacon-esp32>
